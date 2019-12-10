@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32F543F4239F7A4D00FB4D00 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F543F3239F7A4D00FB4D00 /* CoreLocation.framework */; };
 		FA175ED615C19A9A006B274D /* MACParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA175ED515C19A9A006B274D /* MACParser.m */; };
 		FA42D2E015C0BA0C0021527A /* ANClientKiller.m in Sources */ = {isa = PBXBuildFile; fileRef = FA42D2DF15C0BA0C0021527A /* ANClientKiller.m */; };
 		FA8D07F915C3022500B8EDC4 /* CarbonAppProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8D07F815C3022500B8EDC4 /* CarbonAppProcess.m */; };
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		32F543F3239F7A4D00FB4D00 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		803CFB1823088496002BC61F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FA175ED415C19A9A006B274D /* MACParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACParser.h; sourceTree = "<group>"; };
 		FA175ED515C19A9A006B274D /* MACParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACParser.m; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32F543F4239F7A4D00FB4D00 /* CoreLocation.framework in Frameworks */,
 				FAB94C2815C06C9C0031197A /* Security.framework in Frameworks */,
 				FAB94C2615C06C970031197A /* ServiceManagement.framework in Frameworks */,
 				FAB94C0B15C05BB50031197A /* libpcap.dylib in Frameworks */,
@@ -126,6 +129,7 @@
 		FAB94BCA15C0557A0031197A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32F543F3239F7A4D00FB4D00 /* CoreLocation.framework */,
 				FAB94C0A15C05BB50031197A /* libpcap.dylib */,
 				FAB94C2715C06C9C0031197A /* Security.framework */,
 				FAB94C2515C06C970031197A /* ServiceManagement.framework */,

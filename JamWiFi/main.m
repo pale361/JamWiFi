@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
             kAuthorizationFlagExtendRights;
             myStatus = AuthorizationCopyRights(myAuthorizationRef, &myRights, NULL, myFlags, NULL );
             
-            
             if (myStatus != errAuthorizationSuccess) {
                 NSRunAlertPanel(@"Cannot run without admin privileges", @"This program cannot tap into the wireless network stack without administrator access.", @"OK", nil, nil);
                 return 1;
@@ -41,8 +40,7 @@ int main(int argc, char *argv[]) {
             char * myArguments[] = {NULL};
             
             myFlags = kAuthorizationFlagDefaults;
-            myStatus = AuthorizationExecuteWithPrivileges(myAuthorizationRef, myToolPath, myFlags, myArguments,
-                                                          NULL);
+            myStatus = AuthorizationExecuteWithPrivileges(myAuthorizationRef, myToolPath, myFlags, myArguments, NULL);
             AuthorizationFree(myAuthorizationRef, kAuthorizationFlagDefaults);
             exit(0);
         }

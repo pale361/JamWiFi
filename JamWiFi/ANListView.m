@@ -134,6 +134,7 @@
         self->interfaceName = interface.interfaceName;
         NSError * error = nil;
         NSArray * nets = [[interface scanForNetworksWithSSID:nil error:&error] allObjects];
+        NSLog(@"Nets%@", nets.firstObject);
         if (error) NSLog(@"wifi scan error: %@", error);
         if (!nets) {
             [weakSelf performSelectorOnMainThread:@selector(handleScanError) withObject:nil waitUntilDone:NO];
@@ -200,6 +201,7 @@
 - (void)handleScanSuccess:(NSArray *)theNetworks {
     NSMutableArray * newNetworks = [theNetworks mutableCopy];
     for (CWNetwork * network in networks) {
+        NSLog(@"BSSID%@", network.bssid);
         if (![newNetworks containsObject:network]) {
             [newNetworks addObject:network];
         }

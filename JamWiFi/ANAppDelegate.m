@@ -12,8 +12,16 @@
 @implementation ANAppDelegate
 
 @synthesize window = _window;
+@synthesize locationManager = _locationManager;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    if ([CLLocationManager locationServicesEnabled]) {
+        NSLog(@"Location services enabled");
+        _locationManager = [[CLLocationManager alloc] init];
+        [_locationManager setDelegate:self];
+        [_locationManager startUpdatingLocation];
+    }
+    
     // Insert code here to initialize your application
     networkList = [[ANListView alloc] initWithFrame:[self.window.contentView bounds]];
     [self pushView:networkList direction:ANViewSlideDirectionForward];
@@ -68,6 +76,10 @@
 
 - (void)showNetworkList {
     [self pushView:networkList direction:ANViewSlideDirectionBackward];
+}
+
+- (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    NSLog(@"Location status updated to: %d", status);
 }
 
 @end

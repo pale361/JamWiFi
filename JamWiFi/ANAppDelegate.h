@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CarbonAppProcess.h"
+#import <CoreLocation/CoreLocation.h>
 
 typedef enum {
     ANViewSlideDirectionForward,
@@ -16,7 +17,7 @@ typedef enum {
 
 @class ANListView;
 
-@interface ANAppDelegate : NSObject <NSApplicationDelegate> {
+@interface ANAppDelegate : NSObject <NSApplicationDelegate, CLLocationManagerDelegate> {
     NSView * activeView;
     NSView * nextView;
     BOOL animating;
@@ -24,6 +25,7 @@ typedef enum {
 }
 
 @property (assign) IBOutlet NSWindow * window;
+@property (nonatomic, readonly) CLLocationManager * locationManager;
 
 - (void)pushView:(NSView *)view direction:(ANViewSlideDirection)direction;
 - (void)animationComplete;
