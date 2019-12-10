@@ -16,10 +16,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     if ([CLLocationManager locationServicesEnabled]) {
-        NSLog(@"Location services enabled");
         _locationManager = [[CLLocationManager alloc] init];
         [_locationManager setDelegate:self];
         [_locationManager startUpdatingLocation];
+    } else {
+        [self showLocationDisabledAlert];
     }
     
     // Insert code here to initialize your application
@@ -78,8 +79,19 @@
     [self pushView:networkList direction:ANViewSlideDirectionBackward];
 }
 
-- (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+- (void)showLocationDisabledAlert {
+    NSRunAlertPanel(@"Location Services are not enabled", @"Location services are required to scan for BSSID", @"OK", nil, nil);
+}
+
+- (void)showLocationDeniedAlert {
+    NSRunAlertPanel(@"Location permission required", @"Allow location access to scan for BSSID", @"OK", nil, nil);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     NSLog(@"Location status updated to: %d", status);
+    if (status == kCLAuthorizationStatusDenied) {
+        [self showLocationDeniedAlert];
+    }
 }
 
 @end
